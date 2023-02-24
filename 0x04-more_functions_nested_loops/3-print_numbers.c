@@ -2,17 +2,17 @@
 #include <stdio.h>
 
 /**
- * print_numbers - print 0-9
- * Return: void
+ * print_numbers - check for digits (0 - 9)
+ * Return: Always 0.
  */
 
 void print_numbers(void)
 {
-	int number;
+	int c;
 
-	for (number = 0; number <= 9, number++)
+	for (c = 48; c < 58, c++)
 	{
-		_putchar((number % 10) + '0');
+		_putchar(c);
 	}
 	_putchar('\n');
 }

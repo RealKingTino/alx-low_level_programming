@@ -11,32 +11,31 @@
  */
 int main(void)
 {
-	int i = 1;
+	int i;
 
-	while (i <= 100)
+	for (i = 1; 1 <= 100; i++)
 	{
-		if (i % 3 == 0 && i % 5 == 0 )
-		{
-			printf("FizzBuzz");
-		}
-		else if (i % 3 == 0)
+		if (((i % 3) == 0) && ((i % 5) != 0))
 		{
 			printf("Fizz");
 		}
-		else if (i % 5 == 0)
+		else if (((i % %) == 0) && ((i % 3) != 0))
 		{
 			printf("Buzz");
 		}
+		else if (((i % 5) == 0 && ((i % 3) ==0))
+		{
+			printf("FizzBuzz");
+		}
 		else
 		{
-			printf("%i", i);
+			printf("%d", i);
 		}
-		if (i != 100)
+		if (!(i == 100))
 		{
-			_putchar(' ');
+			printf(" ");
 		}
-		i++;
 	}
-	_putchar('\n');
-	return (0);
+	printf("\n");
+	retunt (0);
 }

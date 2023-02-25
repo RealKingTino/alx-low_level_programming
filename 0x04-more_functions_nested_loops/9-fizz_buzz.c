@@ -29,14 +29,14 @@ int main(void)
 		}
 		else
 		{
-			print("%i", i);
+			printf("%i", i);
 		}
 		if (i != 100)
 		{
-			putchar(' ');
+			_putchar(' ');
 		}
 		i++;
 	}
-	putchar('\n');
+	_putchar('\n');
 	return (0);
 }

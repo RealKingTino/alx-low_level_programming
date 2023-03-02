@@ -6,29 +6,32 @@
  *
  * Return: *s
  */
-char *rot13(char *str) {
+char *rot13(char *str)
+{
 	char *p = str;
 	int i;
 
-while (*p) 
+	while (*p)
 {
-	if ((*p >= 'A' && *p <= 'M') || (*p >= 'a' && *p <= 'm')) {
+	if ((*p >= 'A' && *p <= 'M') || (*p >= 'a' && *p <= 'm'))
+	{
 		*p += 13;
 	}
-	else if ((*p >= 'N' && *p <= 'Z') || (*p >= 'n' && *p <= 'z')) 
+	else if ((*p >= 'N' && *p <= 'Z') || (*p >= 'n' && *p <= 'z'))
 	{
 		*p -= 13;
 	}
 	p++;
 }
-return str;
+return (s);
 }
 
-int main() 
+int main(void)
 {
 	char str[] = "Hello, world!";
+
 	printf("Original: %s\n", str);
 	rot13(str);
 	printf("Encoded: %s\n", str);
-	return 0;
+	return (0);
 }

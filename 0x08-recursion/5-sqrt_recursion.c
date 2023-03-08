@@ -17,7 +17,7 @@ int _sqrt_recursion(int n)
 	if (n < 0)
 		return (-1);
 
-	return (actual_sqrt_recursion(n, 1));
+	return (_sqrt_recursion(n, 1));
 }
 
 /**
@@ -27,7 +27,7 @@ int _sqrt_recursion(int n)
  *
  * Return: natural square root of n, -1 if it doesn't have one
  */
-int actual_sqrt_recursion(int n, int i)
+int _sqrt_recursion(int n, int i)
 {
 	if (n == i * i)
 		return (i);
@@ -35,5 +35,5 @@ int actual_sqrt_recursion(int n, int i)
 	if (n < i * i)
 		return (-1);
 
-	return (actual_sqrt_recursion(n, i + 1));
+	return (_sqrt_recursion(n, i + 1));
 }

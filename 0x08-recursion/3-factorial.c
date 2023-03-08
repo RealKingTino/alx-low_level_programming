@@ -1,19 +1,17 @@
 #include "main.h"
 
 /**
- * factorial - returns the factorial of a given number
- * @n: number to return the factorial from
+ * factorial - calculate the factorial of a given number
+ * @n: given number
  *
- * Return: factorial of n
+ * Return: factorial of n, -1 if n is lower than 0
  */
 int factorial(int n)
 {
-	// Base case
+	if (n < 0)
+		return (-1);
 	if (n == 0)
 		return (1);
-	// Recursive case
-	if (n > 0)
-		return (n * factorial(n - 1);
-				else
-				return (-1);
+
+	return (n * factorial(n - 1));
 }

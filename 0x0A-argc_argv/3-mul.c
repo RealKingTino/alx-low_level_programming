@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * main - converts a string to an integer
+ * main - multiplies two numbers
  * @argc: number of arguments
  * @argv: Array of arguments
  *
@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 	num2 = atoi(argv[2]);
 	result = num1 * num2;
 
-	printf("%d\nprint", result);
+	printf("%d\n", result);
+
 	return (0);
 }

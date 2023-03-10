@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
-		
+
 /**
  * main - prints all arguments
  * @argc: number of arguments
@@ -10,7 +10,7 @@
  * Return: Always 0
  */
 
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int i;
 

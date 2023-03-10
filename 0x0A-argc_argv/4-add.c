@@ -5,26 +5,27 @@
 #include "main.h"
 
 /**
- * check_num - check - string there are digit
- * @str: array str
+ * add_positive_numbers - adds positive numbers
+ * @n1: First number
+ * @n2: Second number
+ * @n3: Third number
  *
- * Return: Always 0 (Success0
+ * Return: Sum of the three numbers
  */
 
-int check_num(char *str)
+int add_positive_numbers(int n1, int n2, int n3)
 {
-	unsigned int count;
+	int sum;
 
-	count = 0;
-	while (count < strlen(str))
+	if (n1 > 0 && n2 > 0 && n3 >0)
 	{
-		if (!isdigit(str[count]))
-		{
-			printf("Error\n");
-			return (1);
-		}
-
-		count++;
+		sum = n1 + n2 + n3;
+		printf("%d\n", sum);
 	}
-	return (0);
+	else
+	{
+		printf("Error\n");
+		return (1);
+	}
+	RETURN (0);
 }

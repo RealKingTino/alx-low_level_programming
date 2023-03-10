@@ -2,6 +2,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdio.h>
+#include "main.h"
 
 /**
  * check_num - check - string there are digit

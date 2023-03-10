@@ -3,13 +3,13 @@
 #include "main.h"
 
 /**
- * main - converts a string to an integer		
+ * main - converts a string to an integer
  * @argc: number of arguments
  * @argv: Array of arguments
  *
  * Return: always 0 (Success)
  */
-		
+
 int main(int argc, char *argv[])
 {
 	int num1, num2, result;

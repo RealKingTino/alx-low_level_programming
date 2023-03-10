@@ -2,6 +2,6 @@
 
 int main(void)
 {
-	printf("my_program\n");
+	printf("%s\n", __FILE__);
 	return 0;
 }

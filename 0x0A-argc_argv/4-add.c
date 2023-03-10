@@ -3,12 +3,12 @@
 #include <string.h>
 #include <stdio.h>
 
- /**
-  * main - adds positive numbers passed as arguments
-  * @argc: numbers of arguments
-  * @argv: Array of arguments
-  * Return: 0 on success, 1 on error
-  */
+/**
+ * main - adds positive numbers passed as arguments
+ * @argc: numbers of arguments
+ * @argv: Array of arguments
+ * Return: 0 on success, 1 on error
+ */
 
 int main(int argc, char *argv[])
 {

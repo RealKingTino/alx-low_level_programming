@@ -4,46 +4,26 @@
 #include <stdio.h>
 
 /**
- * main - adds positive numbers passed as arguments
- * @argc: numbers of arguments
- * @argv: Array of arguments
- * Return: 0 on success, 1 on error
+ * check_num - check - string there are digit
+ * @str: array str
+ *
+ * Return: Always 0 (Success0
  */
 
-int main(int argc, char *argv[])
+int check_num(char *str)
 {
-	int sum = 0;
+	unsigned int count;
 
-	if (argc == 1)
+	count = 0;
+	while (count < strlen(str))
 	{
-		printf("0\n");
-		return (0);
-	}
-
-	for (int i = 1; i < argc; i++)
-	{
-		int j = 0;
-
-		while (*argv[i][j] i != '\0')
-		{
-			if (!isdigit(argv[i][j]))
-			{
-				printf("Error\n");
-				return (1);
-			}
-			j++;
-		}
-
-		sum += atoi(argv[i])
+		if (!isdigit(str[count]))
 		{
 			printf("Error\n");
-
 			return (1);
 		}
 
-		sum += num;
+		count++;
 	}
-
-	printf("%d\n", sum);
 	return (0);
 }

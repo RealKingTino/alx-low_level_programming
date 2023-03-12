@@ -9,6 +9,7 @@
 int _atoi(char *s)
 {
 	int i, d, n, len, f, digit;
+
 	i = 0;
 	d = 0;
 	n = 0;
@@ -48,6 +49,7 @@ int _atoi(char *s)
 int main(int argc, char *argv[])
 {
 	int sum, num, i, j, k;
+
 	sum = 0;
 	for (i = 1; i < argc; i++)
 	{

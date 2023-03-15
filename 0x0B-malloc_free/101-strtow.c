@@ -60,33 +60,34 @@ char **strtow(char *str)
 	if (words == 0)
 		return (NULL);
 
-		arr = malloc(sizeof(char *) * (words + 1));
-		if (arr == NULL)
-			return (NULL);
+	arr = malloc(sizeof(char *) * (words + 1));
+	if (arr == NULL)
+		return (NULL);
 
-		i = 0;
-		while (i < words)
+	i = 0;
+	while (i < words)
+	{
+		while (*str == ' ')
+			str++;
+
+		len = 0;
+		while (str[len] != ' ' && str[len] != '\0')
+			len++;
+
+		arr[i] = malloc(sizeof(char) * (len + 1));
+		if (arr[i] == NULL)
 		{
-			while (*str == ' ')
-				str++;
+			for (j = 0; j < i; j++)
+				free(arr[j]);
 
-			len = 0;
-			while (str[len] != ' ' && str[len] != '\0')
-				len++;
-
-			arr[i] = malloc(sizeof(char) * (len + 1));
-			if (arr[i] == NULL)
-			{
-				for (j = 0; j < i; j++)
-					free(arr[j]);
-				free(arr);
-				return (NULL);
-			}
-			for (k = 0; k < len; k++)
-				arr[i][k] = *str++;
-			arr[i][k] = '\0';
-			i++;
+			free(arr);
+			return (NULL);
 		}
-		arr[i] = NULL;
-		return (arr);
+		for (k = 0; k < len; k++)
+			arr[i][k] = *str++;
+		arr[i][k] = '\0';
+		i++;
+	}
+	arr[i] = NULL;
+	return (arr);
 }

@@ -10,6 +10,7 @@
 int _strlen(char *str)
 {
 	int len = 0;
+
 	while (str[len] != '\0')
 		len++;
 
@@ -37,7 +38,7 @@ int count_words(char *str)
 		while (str[i] != ' ' && str[i] != '\0')
 			i++;
 	}
-	
+
 	return (count);
 }
 
@@ -56,37 +57,37 @@ char **strtow(char *str)
 		return (NULL);
 
 	words = count_words(str);
-	arr = malloc(sizeof(char *) * (words + 1));
-	if (arr == NULL)
+	if (words == 0)
 		return (NULL);
-
-	i = 0;
-	while (i < words)
-	{
-		while (*str == ' ')
-			str++;
-
-		len = 0;
-		while (str[len] != ' ' && str[len] != '\0')
 			len++;
 
-		arr[i] = malloc(sizeof(char) * (len + 1));
-		if (arr[i] == NULL)
-		{
-			for (j = 0; j < i; j++)
-				free(arr[j]);
-
-			free(arr);
+		arr = malloc(sizeof(char *) * (words + 1));
+		if (arr == NULL)
 			return (NULL);
+
+		i = 0;
+		while (i < words)
+		{
+			while (*str == ' ')
+				str++;
+
+			len = 0;
+			while (str[len] != ' ' && str[len] != '\0')
+				len++;
+
+			arr[i] = malloc(sizeof(char) * (len + 1));
+			if (arr[i] == NULL)
+			{
+				for (j = 0; j < i; j++)
+					free(arr[j]);
+				free(arr);
+				return (NULL);
+			}
+			for (k = 0; k < len; k++)
+				arr[i][k] = *str++;
+			arr[i][k] = '\0';
+			i++;
 		}
-
-		for (k = 0; k < len; k++)
-			arr[i][k] = *str++;
-
-		arr[i][k] = '\0';
-		i++;
-	}
-
-	arr[i] = NULL;
-	return (arr);
+		arr[i] = NULL;
+		return (arr);
 }

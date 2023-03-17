@@ -1,6 +1,11 @@
 #include <stdlib.h>
 #include "main.h"
 
+int _isdigit(int c);
+int _strlen(char *s);
+int _puts(char *str);
+int _atoi(char *s);
+
 /**
  * _isdigit - checks whether a character is a digit
  * @c: character to check
@@ -28,6 +33,26 @@ int _strlen(char *s)
 	{
 		len++;
 		s++;
+	}
+
+	return (len);
+}
+
+/**
+ * _puts - prints a string to stdout
+ * @str: string to print
+ *
+ * Return: number of characters printed
+ */
+
+int _puts(char *str)
+{
+	int len = _strlen(str);
+	int i;
+
+	for (i = 0; i < len; i++)
+	{
+		_putchar(str[i]);
 	}
 
 	return (len);
@@ -87,6 +112,15 @@ int main(int argc, char **argv)
 	if (argc != 3)
 	{
 		_puts("Error\.");
+		exit(98);
+	}
+
+	num1 = _atoi(argv[1]);
+	num2 = _atoi(argc[2]);
+
+	if (num1 == 0 || num2 == 0)
+	{
+		_puts("Error\n");
 		exit(98);
 	}
 

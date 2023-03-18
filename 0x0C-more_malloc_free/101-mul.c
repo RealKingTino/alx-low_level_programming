@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "main.h"
+#include <stdio.h>
 
 int _isdigit(int c);
 int _strlen(char *s);
@@ -52,27 +53,7 @@ int _puts(char *str)
 
 	for (i = 0; i < len; i++)
 	{
-		_putchar(str[i]);
-	}
-
-	return (len);
-}
-
-/**
- * _puts - prints a string to stdout
- * @str: string to print
- *
- * Return: number of characters printed
- */
-
-int _puts(char *str)
-{
-	int len = _strlen(str);
-	int i;
-
-	for (i = 0; i < len; i++)
-	{
-		_putchar(str[i]);
+		putchar(str[i]);
 	}
 
 	return (len);
@@ -111,18 +92,34 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		_puts("Error\.");
-		exit(98);
-	}
-
-	num1 = _atoi(argv[1]);
-	num2 = _atoi(argc[2]);
-
-	if (num1 == 0 || num2 == 0)
-	{
 		_puts("Error\n");
 		exit(98);
 	}
+
+	char *s1 = argv[1];
+	char *s2 = argv[2];
+
+	while (*s1)
+	{
+		if (!_isdigit(*s1))
+		{
+			_puts("Error\n");
+			exit(98);
+		}
+		s1++;
+	}
+	while (*s2)
+	{
+		if (!_isdigit(*s2))
+		{
+			_puts("Error\n");
+			exit(98);
+		}
+		s2++;
+	}
+
+	num1 = _atoi(argv[1]);
+	num2 = _atoi(argv[2]);
 
 	result = num1 * num2;
 

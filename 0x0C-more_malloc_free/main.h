@@ -8,9 +8,9 @@ int *array_range(int min, int max);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 int _isdigit(int c);
-int _strlen(char *s);
 int _puts(char *str);
 int _atoi(char *s);
 int main(int argc, char **argv);
+int mul(int num1, int num2);
 
 #endif

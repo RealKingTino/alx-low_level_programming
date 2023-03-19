@@ -15,26 +15,6 @@ int _isdigit(int c)
 }
 
 /**
- * _strlen - returns the length of a string
- * @s: string to check
- *
- * Return: length of the string
- */
-
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (*s != '\0')
-	{
-		len++;
-		s++;
-	}
-
-	return (len);
-}
-
-/**
  * _puts - prints a string to stdout
  * @str: string to print
  *
@@ -43,27 +23,15 @@ int _strlen(char *s)
 
 int _puts(char *str)
 {
-	int len = _strlen(str);
-	int i;
+	int len = 0;
 
-	for (i = 0; i < len; i++)
+	while (*str)
 	{
-		putchar(str[i]);
+		putchar(*str++);
+		len++;
 	}
 
 	return (len);
-}
-
-/**
- * _putchar- prints a character
- * @c: character to print
- *
- * Return: character printed
- */
-
-int _putchar(char c)
-{
-	return (putchar(c));
 }
 
 /**
@@ -75,6 +43,15 @@ int _putchar(char c)
 int _atoi(char *s)
 {
 	int result = 0;
+	int sign = 1;
+
+	if (*s == '-')
+
+	{
+		sign = -1;
+
+		s++;
+	}
 
 	while (_isdigit(*s))
 	{
@@ -82,7 +59,20 @@ int _atoi(char *s)
 		s++;
 	}
 
-	return (result);
+	return (sign * result);
+}
+
+/**
+ * mul - multiplies two positive numbers
+ * @num1: first number to multiply
+ * @num2: second number to multiply
+ *
+ * Return: the product of num1 and num2
+ */
+
+int mul(int num1, int num2)
+{
+	return (num1 * num2);
 }
 
 /**
@@ -96,41 +86,23 @@ int _atoi(char *s)
 int main(int argc, char **argv)
 {
 	int num1, num2, result;
-	char *s1;
-	char *s2;
 
 	if (argc != 3)
 	{
 		_puts("Error\n");
-		exit(98);
-	}
-
-	s1 = argv[1];
-	s2 = argv[2];
-
-	while (*s1)
-	{
-		if (!_isdigit(*s1))
-		{
-			_puts("Error\n");
-			exit(98);
-		}
-		s1++;
-	}
-	while (*s2)
-	{
-		if (!_isdigit(*s2))
-		{
-			_puts("Error\n");
-			exit(98);
-		}
-		s2++;
+		return (98);
 	}
 
 	num1 = _atoi(argv[1]);
 	num2 = _atoi(argv[2]);
 
-	result = num1 * num2;
+	if (!_isdigit(*argv[1]) || !_isdigit(*argv[2]))
+	{
+		_puts("Error\n");
+		return (98);
+	}
+
+	result = mul(num1, num2);
 
 	printf("%d\n", result);
 

@@ -55,6 +55,18 @@ int _puts(char *str)
 }
 
 /**
+ * _putchar- prints a character
+ * @c: character to print
+ *
+ * Return: character printed
+ */
+
+int _putchat(char c)
+{
+	return (putchar(c));
+}
+
+/**
  * _atoi - converts a string to an integer
  * @s: string to convert
  *

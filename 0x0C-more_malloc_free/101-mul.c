@@ -61,7 +61,7 @@ int _puts(char *str)
  * Return: character printed
  */
 
-int _putchat(char c)
+int _putchar(char c)
 {
 	return (putchar(c));
 }

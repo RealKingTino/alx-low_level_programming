@@ -2,11 +2,6 @@
 #include "main.h"
 #include <stdio.h>
 
-int _isdigit(int c);
-int _strlen(char *s);
-int _puts(char *str);
-int _atoi(char *s);
-
 /**
  * _isdigit - checks whether a character is a digit
  * @c: character to check

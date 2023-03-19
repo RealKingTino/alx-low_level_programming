@@ -84,6 +84,8 @@ int _atoi(char *s)
 int main(int argc, char **argv)
 {
 	int num1, num2, result;
+	char *s1;
+	char *s2;
 
 	if (argc != 3)
 	{
@@ -91,8 +93,8 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	char *s1 = argv[1];
-	char *s2 = argv[2];
+	s1 = argv[1];
+	s2 = argv[2];
 
 	while (*s1)
 	{

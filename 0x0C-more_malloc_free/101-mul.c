@@ -9,72 +9,46 @@
  * Return: 1 if c is a digit, 0 otherwise
  */
 
-int _isdigit(int c)
+int _isdigit(char *c)
 {
-	return (c >= '0' && c <= '9');
+	int i = 0;
+
+	while (c[i])
+	{
+		if (c[i] < '0' || s[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 /**
- * _puts - prints a string to stdout
- * @str: string to print
+ * _strlen - returns the length of a string
+ * @c: character to check
  *
- * Return: number of characters printed
+ * Return: the length of the string
  */
 
-int _puts(char *str)
+int _strlen(char *c)
 {
-	int len = 0;
+	int i = 0;
 
-	while (*str)
+	while (c[i] != '\0')
 	{
-		putchar(*str++);
-		len++;
+		i++;
 	}
-
-	return (len);
+	return (i);
 }
 
 /**
- * _atoi - converts a string to an integer
- * @s: string to convert
- *
- * Return: integer value of the string
- */
-int _atoi(char *s)
-{
-	int result = 0;
-	int sign = 1;
-
-	if (*s == '-')
-
-	{
-		sign = -1;
-
-		s++;
-	}
-
-	while (_isdigit(*s))
-	{
-		result = result * 10 + (*s - '0');
-		s++;
-	}
-
-	return (sign * result);
-}
-
-/**
- * mul - multiplies two positive numbers
- * @num1: first number to multiply
- * @num2: second number to multiply
- *
- * Return: the product of num1 and num2
+ * error - handles errors for main
  */
 
-int mul(int num1, int num2)
+void error(void)
 {
-	return (num1 * num2);
+	printf("Error\n";
+	exit(98);
 }
-
 /**
  * main - multiplies two positive numbers
  * @argc: number of command-line arguments
@@ -85,26 +59,44 @@ int mul(int num1, int num2)
 
 int main(int argc, char **argv)
 {
-	int num1, num2, result;
+	char *s1, *s2 = argv[2];
+	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
 
-	if (argc != 3)
+	s1 = argv[1], s2 = argv[2];
+	if (argc != 3 || !is_digit(s1) || !is_digit(s2))
+		erros();
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	len = len1 + len2 + 1;
+	result = malloc(sizeof(int) * len);
+	if (!result)
+		return (1);
+	for (i = 0; i <= len1 + len2; i++)
+		result[i] = 0;
+	for (len1 = len1 - 1; len1 >= 0; len1--)
 	{
-		_puts("Error\n");
-		return (98);
+		digit1 = s1[len1] - '0';
+		carry = 0;
+		for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
+		{
+			digit2 = s2[len2] - '0';
+			carry += result[len1 + len2 + 1] + (digit1 * digit2);
+			result[len1 + len2 + 1] = carry % 10;
+			carry /= 10;
+		}
+		if (carry > 0)
+			result[len1 + len2 + 1] += carry;
 	}
-
-	num1 = _atoi(argv[1]);
-	num2 = _atoi(argv[2]);
-
-	if (!_isdigit(*argv[1]) || !_isdigit(*argv[2]))
+	for (i = 0; i < len - 1; i++)
 	{
-		_puts("Error\n");
-		return (98);
+		if (result[i])
+			a = 1;
+		if (a)
+			_putchar(result[i] + '0');
 	}
-
-	result = mul(num1, num2);
-
-	printf("%d\n", result);
-
+	if (!a)
+		_putchar('0');
+	_putchar('\n');
+	free(result);
 	return (0);
 }

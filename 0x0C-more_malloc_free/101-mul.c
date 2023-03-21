@@ -6,7 +6,7 @@
  * _isdigit - checks whether a character is a digit
  * @c: character to check
  *
- * Return: 1 if c is a digit, 0 otherwise
+ * Return: 0 if c is a non-digit, 1 otherwise
  */
 
 int _isdigit(char *c)
@@ -54,16 +54,16 @@ void error(void)
  * @argc: number of command-line arguments
  * @argv: array of command-line arguments
  *
- * Return: 0 on success, 98 on failure
+ * Return: 0 on success
  */
 
-int main(int argc, char **argv)
+int main(int argc, char **argv[])
 {
 	char *s1, *s2 = argv[2];
 	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
 
 	s1 = argv[1], s2 = argv[2];
-	if (argc != 3 || !is_digit(s1) || !is_digit(s2))
+	if (argc != 3 || !_isdigit(s1) || !_isdigit(s2))
 		erros();
 	len1 = _strlen(s1);
 	len2 = _strlen(s2);

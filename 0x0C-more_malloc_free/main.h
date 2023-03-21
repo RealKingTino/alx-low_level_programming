@@ -11,7 +11,7 @@ int _isdigit(char *c);
 void errors(void);
 int _puts(char *str);
 int _atoi(char *s);
-int main(int argc, char **argv[]);
+int main(int argc, char *argv[]);
 int mul(int num1, int num2);
 
 #endif

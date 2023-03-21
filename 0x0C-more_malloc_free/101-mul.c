@@ -15,7 +15,7 @@ int _isdigit(char *c)
 
 	while (c[i])
 	{
-		if (c[i] < '0' || s[i] > '9')
+		if (c[i] < '0' || c[i] > '9')
 			return (0);
 		i++;
 	}
@@ -46,7 +46,7 @@ int _strlen(char *c)
 
 void error(void)
 {
-	printf("Error\n";
+	printf("Error\n");
 	exit(98);
 }
 /**
@@ -57,14 +57,14 @@ void error(void)
  * Return: 0 on success
  */
 
-int main(int argc, char **argv[])
+int main(int argc, char *argv[])
 {
 	char *s1, *s2 = argv[2];
 	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
 
 	s1 = argv[1], s2 = argv[2];
 	if (argc != 3 || !_isdigit(s1) || !_isdigit(s2))
-		erros();
+		error();
 	len1 = _strlen(s1);
 	len2 = _strlen(s2);
 	len = len1 + len2 + 1;
@@ -92,11 +92,11 @@ int main(int argc, char **argv[])
 		if (result[i])
 			a = 1;
 		if (a)
-			_putchar(result[i] + '0');
+			putchar(result[i] + '0');
 	}
 	if (!a)
-		_putchar('0');
-	_putchar('\n');
+		putchar('0');
+	putchar('\n');
 	free(result);
 	return (0);
 }

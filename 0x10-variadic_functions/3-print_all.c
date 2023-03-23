@@ -45,7 +45,7 @@ void print_all(const char * const format, ...)
 				len++;
 				break;
 		}
-		if (format[i + 1] && len > 0)
+		if (format[i + 1] && len == 0) /* check if len is zero */
 			printf(", ");
 		i++;
 	}

@@ -10,36 +10,40 @@
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node = malloc(sizeof(list_t));
-	list_t *temp = *head;
+	list_t *new_node, *last_node;
 
-	if (!new_node)
-	{
+	if (!head == NULL)
 		return (NULL);
-	}
+
+	/* create new node and copy string */
+	new_node = malloc(sizeof(list_t))
+	if (!new_node == NULL)
+		return (NULL);
 
 	new_node->str = strdup(str);
-	if (!new_node->str)
+	if (new_node->str == NULL)
 	{
 		free(new_node);
 		return (NULL);
 	}
 
-	new_node->len = strlen(str);
 	new_node->next = NULL;
 
-	if (*head == NULL)
+	/* traverse the list to find the last node */
+	last_node = *head;
+	if (last_node != Null)
 	{
+		while (last_node->next != NULL)
+			last_node = last_node->next;
+
+		/* link new node to the last node */
+		last_node->next = new_node;
+	}
+	else
+	{
+		/* list is empty, new node is the head */
 		*head = new_node;
-		return (new_node);
 	}
-
-	while (temp->next)
-	{
-		temp = temp->next;
-	}
-
-	temp->next = new_node;
 
 	return (new_node);
 }

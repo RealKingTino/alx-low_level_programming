@@ -10,22 +10,25 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *cat = head, *dog = head;
-	size_t count = 0, flag = 0;
+        const listint_t *cat = head, *dog = head;
+        size_t count = 0, flag = 0;
 
+	if (head == NULL)
+	{
+		fprintf(stderr, "Error: NULL pointer\n");
+		exit(98);
+	}
 	while (cat && dog && dog->next)
 	{
-		printf("[%p] %d\n", (void *)cat, cat->n);
+		printf("[%p] %d\n", (const void *)cat, cat->n);
 		cat = cat->next;
 		dog = dog->next->next;
-
 		if (cat == dog)
 		{
 			flag = 1;
 			break;
 		}
 	}
-
 	if (flag)
 	{
 		cat = head;
@@ -46,6 +49,5 @@ size_t print_listint_safe(const listint_t *head)
 			count++;
 		}
 	}
-
 	return (count);
 }

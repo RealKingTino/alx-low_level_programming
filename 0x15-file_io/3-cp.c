@@ -1,5 +1,7 @@
 #include "main.h"
 
+#define BUFSIZE 1024
+
 /**
  * main - copies the content of one file to another
  *

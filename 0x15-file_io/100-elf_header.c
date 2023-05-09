@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 }
 
 /**
- * validate_arguments - Check if the program was invoked with the right arguments
+ * validate_arguments - Check if the program was invoked with d right arguments
  *
  * @argc: Number of arguments
  * @argv: Array of argument strings
@@ -112,7 +112,7 @@ void print_header_info(Elf64_Ehdr header)
 	printf("Data:                              %d\n", header.e_ident[EI_DATA]);
 	printf("Version:                           %d\n", header.e_ident[EI_VERSION]);
 	printf("OS/ABI:                            %d\n", header.e_ident[EI_OSABI]);
-	printf("ABI Version:                       %d\n", header.e_ident[EI_ABIVERSION]);
+	printf("ABI Version:             %d\n", header.e_ident[EI_ABIVERSION]);
 	printf("Type:                              %d\n", header.e_type);
 	printf("Entry point address:               0x%lx\n", header.e_entry);
 }
